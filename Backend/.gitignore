@@ -1,29 +1,30 @@
-# Node modules
+# Ignore the entire frontend folder at root level
+/frontend/
+
+# Ignore node modules everywhere
 node_modules/
 
-# Output folder from tsc compiler
+# Ignore build output
 dist/
 
-# Logs
+# Ignore logs
 logs/
 *.log
 npm-debug.log*
 
-# Environment variables files
+# Ignore environment files
 .env
 .env.local
 .env.*.local
 
-# Debugger files
+# Ignore IDE files
 .vscode/
 .idea/
 
-# OS generated files
+# Ignore OS junk
 .DS_Store
 Thumbs.db
 
-# Optional: TypeScript cache (if you use it)
+# Optional TS build info and coverage
 *.tsbuildinfo
-
-# Optional: coverage reports (if you use testing with coverage)
 coverage/
