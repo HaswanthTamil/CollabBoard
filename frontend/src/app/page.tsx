@@ -1,7 +1,6 @@
+import { redirect } from "next/navigation"
+import "../styles/globals.css"
+
 export default function Home() {
-  return (
-    <>
-      <div>Collab Board</div>
-    </>
-  )
+  redirect("/ideaboard")
 }

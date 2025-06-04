@@ -16,7 +16,7 @@ CollabBoard is a minimalist productivity platform that blends the best of Notion
 
 **Frontend:**
 
-- React + Vite
+- Next.js
 - TailwindCSS
 - Framer Motion
 - Zustand (or Context API, TBD)
