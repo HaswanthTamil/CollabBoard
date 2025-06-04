@@ -1,10 +1,10 @@
 import "reflect-metadata"; // Required for TypeORM :D
 import { Hono } from "hono";
 import { serve } from "@hono/node-server";
-import { PORT } from "./config/index.ts";
-import authenticationRoutes from "./routes/authentication.ts";
+import { PORT } from "./config/index";
+import authenticationRoutes from "./routes/authentication";
 import type { JwtVariables } from "hono/jwt";
-import { connectToMongoDb, connectToPostgres } from "./db/database.ts";
+import { connectToMongoDb, connectToPostgres } from "./db/database";
 
 const app = new Hono<{ Variables: JwtVariables }>().basePath("/api");
 

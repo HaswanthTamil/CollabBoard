@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { MONGO_URI } from "../config/index.ts";
-import postgresDataSource from "./postgres/index.ts";
+import { MONGO_URI } from "../config/index";
+import postgresDataSource from "./postgres/index";
 
 export async function connectToMongoDb() {
   return mongoose
