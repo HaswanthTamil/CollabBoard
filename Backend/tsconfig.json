@@ -27,6 +27,7 @@
 
     // TypeORM configuration options
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
   }
 }
