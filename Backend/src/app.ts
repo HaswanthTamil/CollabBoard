@@ -3,7 +3,7 @@ import { connectDB } from "./db/database.ts";
 import { serve } from "@hono/node-server";
 import { PORT } from "./config/index.ts";
 import authenticationRoutes from "./routes/authentication.ts";
-import { JwtVariables } from "hono/jwt";
+import type { JwtVariables } from "hono/jwt";
 
 const app = new Hono<{ Variables: JwtVariables }>().basePath("/api");
 
