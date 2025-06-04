@@ -1,12 +1,17 @@
 import mongoose from "mongoose";
-import { MONGO_URI } from "../config/index.ts";
+import { MONGO_URI } from "../config/index";
+import postgresDataSource from "./postgres/index";
 
-export async function connectDB() {
-  try {
-    await mongoose.connect(MONGO_URI);
-    console.log("✅ MongoDB connected");
-  } catch (error) {
-    console.error("❌ MongoDB connection failed", error);
-    process.exit(1);
-  }
+export async function connectToMongoDb() {
+  return mongoose
+    .connect(MONGO_URI)
+    .then(() => console.log("✅ MongoDB connected"))
+    .catch((err) => console.error("❌ MongoDB connection failed:", err));
+}
+
+export async function connectToPostgres() {
+  return postgresDataSource
+    .initialize()
+    .then(() => console.log("✅ Postgres connected"))
+    .catch((err) => console.error("❌ Postgres connection failed:", err));
 }
