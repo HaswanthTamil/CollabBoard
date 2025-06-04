@@ -1,19 +1,33 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose from "mongoose";
 
-export interface IUser extends Document {
-  email: string;
-  password: string;
-  name: string;
-  role: string;
-}
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+        type: String,
+        required: [true, 'Please provide name'],
+        minlength: 2,
+        maxlength: 50,
+        trim: true,
+        lowercase: true
+    },
+    email: {
+        type: String,
+        required: [true, 'Please provide email'],
+        minlength: 6,
+        maxlength: 50,
+        trim: true,
+        lowercase: true,
+        match: [/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please provide valid email'],
+        unique: true 
+    },
+    password: {
+        type: String,
+        required: [true, 'Please provide password'],
+        minlength: 5,
+    },
+    role: { type: String, enum: ["admin", "user"], default: "user" },
+  },
+  { timestamps: true }
+);
 
-const UserSchema = new Schema<IUser>({
-  email: { type: String, required: true, unique: true, lowercase: true },
-  password: { type: String, required: true },
-  name: { type: String, required: true },
-  role: { type: String, required: true, default: 'user' },
-}, { timestamps: true });
-
-const User = mongoose.model<IUser>('User', UserSchema);
-
-export default User;
+export default mongoose.model("User", userSchema);
