@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Output folder from tsc compiler
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables files
+.env
+.env.local
+.env.*.local
+
+# Debugger files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional: TypeScript cache (if you use it)
+*.tsbuildinfo
+
+# Optional: coverage reports (if you use testing with coverage)
+coverage/
