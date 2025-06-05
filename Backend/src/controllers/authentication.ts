@@ -61,7 +61,7 @@ export const login = async (c: Context) => {
   const body = await c.req.json<LoginRequest>();
 
   const user = await userRepository.findOne({
-    where: { email: body.email ?? " ", username: body.username ?? " " }
+    where: { email: body.email }
   });
 
   if (!user) {
