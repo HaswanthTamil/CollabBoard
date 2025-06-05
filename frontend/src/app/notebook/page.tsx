@@ -1,7 +1,11 @@
+import Header from "@/components/Header"
+
 const NoteBook = () => {
   return (
     <>
-      <div>NoteBook</div>
+      <div>
+        <Header />
+      </div>
     </>
   )
 }
