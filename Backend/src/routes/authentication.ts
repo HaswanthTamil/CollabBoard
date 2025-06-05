@@ -1,13 +1,17 @@
 import { Hono } from "hono";
+import { login, me, refresh, register } from "../controllers/authentication";
+import { authMiddleware, jwtMiddleware } from "../middleware/authentication";
+import { validationMiddleware } from "../middleware/validation";
+import { loginSchema, registerSchema } from "../schemas/authentication";
 
-const authenticationRoutes = new Hono().basePath("/auth");
+const authRoutes = new Hono().basePath("/auth");
 
-authenticationRoutes.post("/login", (c) => {
-  return c.text("Route not implemented.");
-});
+authRoutes.post("/register", validationMiddleware(registerSchema), register);
+authRoutes.post("/login", validationMiddleware(loginSchema), login);
+authRoutes.post("/refresh", refresh);
 
-authenticationRoutes.post("/refresh", (c) => {
-  return c.text("Route not implemented.");
-});
+// Authenticated Routes
+authRoutes.use("*", jwtMiddleware, authMiddleware);
+authRoutes.get("/me", me);
 
-export default authenticationRoutes;
+export default authRoutes;
