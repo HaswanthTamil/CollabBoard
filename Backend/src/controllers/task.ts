@@ -17,6 +17,19 @@ export const createTask = async (c: Context): Promise<Response> => {
   }
 };
 
+export const getTask = async (c: Context): Promise<Response> => {
+  try {
+    const { id } = c.req.param();
+    const task = await Task.findById(id);
+    if(!task) {
+      return c.json({message: 'Task not found'}, 404);
+    }
+    return c.json(task);
+  } catch (error) {
+    return c.json({message: 'Error fetching task', error}, 500);
+  }
+}
+
 export const getTasks = async (c: Context): Promise<Response> => {
   try {
     const { projectId } = c.req.param();
