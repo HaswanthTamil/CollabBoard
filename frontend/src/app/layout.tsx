@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "../styles/globals.css"
+import NavPanel from "@/components/NavPanel"
 
 export const metadata: Metadata = {
   title: "CollabBoard",
@@ -16,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="flex">
+          <NavPanel />
+          <main className="flex-1 md:ml-16">{children}</main>
+        </div>
+      </body>
     </html>
   )
 }
