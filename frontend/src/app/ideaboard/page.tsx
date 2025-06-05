@@ -1,7 +1,11 @@
+import Header from "@/components/Header"
+
 const IdeaBoard = () => {
   return (
     <>
-      <div>IdeaBoard</div>
+      <div>
+        <Header />
+      </div>
     </>
   )
 }

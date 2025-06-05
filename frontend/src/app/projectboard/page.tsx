@@ -1,7 +1,11 @@
+import Header from "@/components/Header"
+
 const ProjectBoard = () => {
   return (
     <>
-      <div>ProjectBoard</div>
+      <div>
+        <Header />
+      </div>
     </>
   )
 }

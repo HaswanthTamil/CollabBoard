@@ -1,18 +1,25 @@
+"use client"
+
 import { Search } from "lucide-react"
 
 const SearchBar = () => {
   return (
-    <>
-      <div className="flex items-center gap-2 w-full max-w-md px-4 py-2 border bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 shadow-sm focus-within:ring-2 focus-within:ring-blue-500">
-        <Search className="w-5 h-5 text-zinc-500 dark:text-zinc-400" />
-        n{" "}
-        <input
-          type="text"
-          placeholder="Search..."
-          className="flex-1 bg-transparent outline-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
-        />
-      </div>
-    </>
+    <div
+      className="flex flex-grow items-center gap-1"
+      role="search"
+      aria-label="Site search"
+    >
+      <Search
+        className="w-5 h-5 text-zinc-500 dark:text-zinc-400"
+        aria-hidden="true"
+      />
+      <input
+        type="text"
+        placeholder="Search..."
+        aria-label="Search"
+        className="flex-1 bg-transparent outline-none text-zinc-800 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
+      />
+    </div>
   )
 }
 
