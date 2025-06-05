@@ -6,7 +6,7 @@ const router = new Hono();
 
 router.use('*', jwtMiddleware, authMiddleware);
 
-router.post('/', createTask);
+router.post('/:projectId', createTask);
 router.get('/', getTasks);
 router.get('/:id', getTask);
 router.put('/:id', updateTask);
