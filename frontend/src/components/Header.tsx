@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header
       role="banner"
-      className="header flex items-center gap-2 flex-grow px-4 py-2 border bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 shadow-sm focus-within:ring-2 focus-within:ring-blue-500"
+      className="header flex items-center gap-2 px-4 py-2 border bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 sticky top-0 z-10"
     >
       <Image
         src="/logo.png"

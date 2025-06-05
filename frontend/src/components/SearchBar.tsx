@@ -5,7 +5,7 @@ import { Search } from "lucide-react"
 const SearchBar = () => {
   return (
     <div
-      className="flex flex-grow items-center gap-1"
+      className="flex flex-grow items-center gap-1 border-1 border-gray-400 dark:border-zinc-600 rounded-full px-2 py-1"
       role="search"
       aria-label="Site search"
     >
