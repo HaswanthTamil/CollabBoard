@@ -1,7 +1,6 @@
 import type { Context } from 'hono';
-import type { IIdeaPocket } from '../models/IdeaPocket.ts';
-import IdeaPocket from '../models/IdeaPocket.ts';
-import Card from '../models/Card.ts';
+import IdeaPocket, { IIdeaPocket } from '../db/models/IdeaPocket';
+import Card from '../db/models/Card';
 
 export const createPocket = async (c: Context): Promise<Response> => {
   try {

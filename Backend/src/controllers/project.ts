@@ -1,7 +1,6 @@
 import type { Context } from 'hono';
-import type { IProject } from '../models/Project.ts';
-import Project from '../models/Project.ts';
-import Task from '../models/Task.ts';
+import Project, { IProject } from '../db/models/Project';
+import Task from '../db/models/Task';
 
 export const createProject = async (c: Context): Promise<Response> => {
   try {

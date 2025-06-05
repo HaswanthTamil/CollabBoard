@@ -1,6 +1,6 @@
 import type { Context } from 'hono';
-import type { ICard } from '../models/Card.ts';
-import Card from '../models/Card.ts';
+import Card, { ICard } from '../db/models/Card';
+
 
 export const createCard = async (c: Context): Promise<Response> => {
   try {

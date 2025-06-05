@@ -1,11 +1,11 @@
 import { Hono } from 'hono';
-import { authMiddleware } from '../middleware/auth-middleware';
-import { createPocket, getPockets, updatePocket, deletePocket } from '../controller/pocket-controller';
-import { createCard, getCards, updateCard, deleteCard } from '../controller/card-controller';
+import { authMiddleware, jwtMiddleware } from '../middleware/authentication';
+import { createPocket, deletePocket, getPockets, updatePocket } from '../controllers/pocket';
+import { createCard, getCards, updateCard, deleteCard } from '../controllers/card';
 
 const router = new Hono();
 
-router.use('*', authMiddleware);
+router.use('*', jwtMiddleware, authMiddleware);
 
 router.post('/', createPocket);
 router.get('/', getPockets);
