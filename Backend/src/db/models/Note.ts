@@ -4,7 +4,7 @@ const noteSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     content: { type: String },
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     tags: [{ type: String }],
     pinned: { type: Boolean, default: false },
   },

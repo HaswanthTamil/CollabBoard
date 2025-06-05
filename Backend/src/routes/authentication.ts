@@ -4,7 +4,7 @@ import { authMiddleware, jwtMiddleware } from "../middleware/authentication";
 import { validationMiddleware } from "../middleware/validation";
 import { loginSchema, registerSchema } from "../schemas/authentication";
 
-const authRoutes = new Hono().basePath("/auth");
+const authRoutes = new Hono();
 
 authRoutes.post("/register", validationMiddleware(registerSchema), register);
 authRoutes.post("/login", validationMiddleware(loginSchema), login);
