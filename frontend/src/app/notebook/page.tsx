@@ -1,7 +1,20 @@
+import Header from "@/components/nonreusable-ui/Header"
+import NoteCard from "@/components/reusable-ui/NoteCard"
+
 const NoteBook = () => {
   return (
     <>
-      <div>NoteBook</div>
+      <div className="bg-white dark:bg-black flex flex-col h-screen">
+        <Header />
+        <div className="columns-2 gap-2 space-y-2 p-2 overflow-auto flex-grow">
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
+        </div>
+      </div>
     </>
   )
 }
