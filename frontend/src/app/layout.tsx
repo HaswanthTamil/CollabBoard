@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import "../styles/globals.css"
-import NavPanel from "@/components/NavPanel"
+import NavPanel from "@/components/nonreusable-ui/NavPanel"
 
 export const metadata: Metadata = {
   title: "CollabBoard",

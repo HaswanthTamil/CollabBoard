@@ -1,7 +1,8 @@
 "use client"
-import Image from "next/image"
+
+import NavPanel from "./NavPanel"
 import SearchBar from "../reusable-ui/SearchBar"
-import NavPanel from "../NavPanel"
+import Image from "next/image"
 
 const Header = () => {
   return (
