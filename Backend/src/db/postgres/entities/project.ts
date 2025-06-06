@@ -1,17 +1,24 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import type { User } from "./user";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm'
+import type { User } from './user'
 
-@Entity({ name: "project" })
+@Entity({ name: 'project' })
 export class Project {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
-    @Column()
-    name: string;
-    
-    @ManyToOne("User", "projects")
-    createdBy: User;
+  @Column()
+  name: string
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @ManyToOne('User', 'projects')
+  createdBy: User
+
+  @CreateDateColumn()
+  createdAt: Date
 }
