@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import Header from "@/components/Header"
-import NoteCard from "@/components/NoteCard"
-=======
 import Header from "@/components/nonreusable-ui/Header"
 import NoteCard from "@/components/reusable-ui/NoteCard"
->>>>>>> feat/notebook-page
 
 const NoteBook = () => {
   return (
