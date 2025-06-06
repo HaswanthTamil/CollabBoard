@@ -52,7 +52,6 @@ export const getProject = async (c: Context): Promise<Response> => {
       return c.json({ message: "Not authorized to access this project" }, 403);
     }
 
-    // return c.json(project, 200);
     return c.json(
       {
         id: project.id,
@@ -73,12 +72,42 @@ export const getProject = async (c: Context): Promise<Response> => {
 
 export const updateProject = async (c: Context): Promise<Response> => {
   try {
+    const authContext = c.get("authContext");
     const { id } = c.req.param();
     const body = await c.req.json();
 
-    const project = await projectRepository.update({ id: id }, body);
+    const project = await projectRepository.findOne({
+      where: { id },
+      relations: ["createdBy"],
+    });
 
-    return c.json(project);
+    if (!project) {
+      return c.json({ message: "Project not found" }, 404);
+    }
+
+    if (project.createdBy.id !== authContext.user.id) {
+      return c.json({ message: "Not authorized to access this project" }, 403);
+    }
+
+    // Update fields manually (for better control)
+    project.name = body.name ?? project.name;
+
+    // Save the updated project
+    const updatedProject = await projectRepository.save(project);
+
+    return c.json(
+      {
+        id: project.id,
+        name: project.name,
+        createdAt: project.createdAt,
+        createdBy: {
+          id: project.createdBy.id,
+          username: project.createdBy.username,
+          email: project.createdBy.email,
+        },
+      },
+      200
+    );
   } catch (error) {
     return c.json({ message: "Error updating project", error }, 500);
   }
