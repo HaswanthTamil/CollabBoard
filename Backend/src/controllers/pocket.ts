@@ -8,6 +8,7 @@ export const createPocket = async (c: Context): Promise<Response> => {
     const pocket: IIdeaPocket = new IdeaPocket({
       ...body,
       createdBy: c.get('user').id,
+      createdAt: new Date(),
     });
     await pocket.save();
     return c.json(pocket, 201);
