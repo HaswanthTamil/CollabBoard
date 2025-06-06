@@ -1,19 +1,28 @@
 import type { Context } from 'hono';
 import IdeaPocket, { IIdeaPocket } from '../db/models/IdeaPocket';
 import Card from '../db/models/Card';
+import { AuthContext } from '../types/authentication';
 
 export const createPocket = async (c: Context): Promise<Response> => {
   try {
     const body = await c.req.json();
+    const authContext = c.get("authContext") as AuthContext;
+    const user = authContext.user;
     const pocket: IIdeaPocket = new IdeaPocket({
       ...body,
-      createdBy: c.get('user').id,
+      createdBy: user.id,
       createdAt: new Date(),
     });
     await pocket.save();
     return c.json(pocket, 201);
-  } catch (error) {
-    return c.json({ message: 'Error creating pocket', error }, 500);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Error creating pocket', error );
+      return c.json({message: 'Error creating pocket', error: error.message || error}, 500)
+    } else {
+      console.error("Pocket creation error:", error);
+      return c.json({ message: 'Error creating pocket', error }, 500);
+    }
   }
 };
 
