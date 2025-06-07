@@ -23,9 +23,9 @@ CollabBoard is a minimalist productivity platform that blends the best of Notion
 
 **Backend:**
 
-- Node.js + Express
-- MongoDB Atlas
-- JWT (optional, for auth)
+- Typescript + Node + Hono
+- MongoDB + Postgres
+- JWT
 
 **Dev Tools:**
 
@@ -51,6 +51,8 @@ CollabBoard/
 ├── backend/
 │   ├── routes/
 │   ├── controllers/
-│   └── models/
+│   └── db/
+│        └── postgres/
+│        └── models/
 └── README.md
 ```
