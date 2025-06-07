@@ -1,5 +1,9 @@
-const ThreeDotsIcon = () => (
-  <div className="p-1">
+"use client"
+
+import { DotOptionsProps } from "@/lib/types"
+
+const ThreeDotsIcon = ({ onClick }: DotOptionsProps) => (
+  <div className="p-1" onClick={onClick}>
     <svg
       width="24"
       height="24"
