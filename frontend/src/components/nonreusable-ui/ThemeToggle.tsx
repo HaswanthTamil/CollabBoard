@@ -1,4 +1,3 @@
-// components/ThemeToggle.tsx
 "use client"
 
 import { Moon, Sun } from "lucide-react"
@@ -15,15 +14,19 @@ export default function ThemeToggle() {
 
   if (!mounted) return null
 
+  const isDark = theme === "dark"
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       className="p-2 text-white border border-transparent hover:border-gray-400 transition-all duration-300 ease-out rounded-full"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      title={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? (
-        <Sun className="w-5 h-5" />
+      {isDark ? (
+        <Sun className="w-5 h-5" aria-hidden="true" />
       ) : (
-        <Moon className="w-5 h-5" />
+        <Moon className="w-5 h-5" aria-hidden="true" />
       )}
     </button>
   )
