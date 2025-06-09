@@ -3,6 +3,7 @@
 import NavPanel from "./NavPanel"
 import SearchBar from "../reusable-ui/SearchBar"
 import Image from "next/image"
+import ThemeToggle from "./ThemeToggle"
 
 const Header = () => {
   return (
@@ -18,6 +19,7 @@ const Header = () => {
         priority
       />
       <SearchBar />
+      <ThemeToggle />
       <div className="hidden md:flex md:flex-1 md:justify-end">
         <NavPanel />
       </div>

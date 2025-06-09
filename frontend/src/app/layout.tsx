@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "../styles/globals.css"
 import NavPanel from "@/components/nonreusable-ui/NavPanel"
+import { ThemeProvider } from "next-themes"
 
 export const metadata: Metadata = {
   title: "CollabBoard",
@@ -18,12 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <main className="flex-grow">{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <main className="flex-grow">{children}</main>
 
-        {/* NavPanel fixed bottom only on mobile */}
-        <div className="fixed bottom-0 left-0 right-0 md:hidden z-50">
-          <NavPanel />
-        </div>
+          {/* NavPanel fixed bottom only on mobile */}
+          <div className="fixed bottom-0 left-0 right-0 md:hidden z-50">
+            <NavPanel />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
