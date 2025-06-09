@@ -1,5 +1,5 @@
 import Header from "@/components/nonreusable-ui/Header"
-import ProjectCard from "@/components/reusable-ui/ProjectCard"
+import TestProjectCard from "@/components/reusable-ui/TestProjectCard"
 
 const ProjectBoard = () => {
   return (
@@ -15,56 +15,14 @@ const ProjectBoard = () => {
           <h1 id="project-board-title" className="sr-only">
             Project Board
           </h1>
-
-          <section aria-label="Project list">
-            <ProjectCard
-              title="CollabBoard MVP"
-              tasks={[
-                {
-                  _id: "1",
-                  title: "Setup schema lorem ipsum dolar set amet",
-                  status: "done",
-                  icon: "CheckCircle",
-                },
-                {
-                  _id: "2",
-                  title: "Build UI",
-                  status: "in-progress",
-                  icon: "Loader2",
-                },
-                {
-                  _id: "3",
-                  title: "Deploy backend",
-                  status: "todo",
-                  icon: "ClipboardList",
-                },
-                {
-                  _id: "4",
-                  title: "Go for a walk",
-                  status: "cancelled",
-                  icon: "XCircle",
-                },
-                {
-                  _id: "5",
-                  title: "Go for a walk",
-                  status: "cancelled",
-                  icon: "XCircle",
-                },
-                {
-                  _id: "6",
-                  title: "Go for a walk",
-                  status: "cancelled",
-                  icon: "XCircle",
-                },
-                {
-                  _id: "7",
-                  title: "Go for a walk",
-                  status: "cancelled",
-                  icon: "XCircle",
-                },
-              ]}
-            />
-          </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[25vh]">
+            <TestProjectCard />
+            <TestProjectCard />
+            <TestProjectCard />
+            <TestProjectCard />
+            <TestProjectCard />
+            <TestProjectCard />
+          </div>
         </main>
       </div>
     </>
