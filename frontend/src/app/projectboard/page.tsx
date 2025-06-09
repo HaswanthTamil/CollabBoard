@@ -8,7 +8,7 @@ const ProjectBoard = () => {
         <Header />
 
         <main
-          className="flex-1 flex-col py-2 gap-2 dark:bg-black overflow-auto"
+          className="flex-1 flex-col py-2 gap-2 overflow-auto"
           role="main"
           aria-labelledby="project-board-title"
         >
