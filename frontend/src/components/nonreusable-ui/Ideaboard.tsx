@@ -4,6 +4,7 @@ const Ideaboard = () => {
   return (
     <div>
       {/* Recents */}
+
       {/* Private */}
       {/* Public */}
     </div>

@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-
 import Header from "@/components/nonreusable-ui/Header"
 
 type PageProps = {
@@ -41,7 +40,7 @@ const NotePage = async ({ params }: PageProps) => {
           </time>
           {note.pinned && (
             <span className="ml-2 bg-yellow-300 text-black px-2 py-1 rounded">
-              :pushpin: Pinned
+              📌 Pinned
             </span>
           )}
         </div>
